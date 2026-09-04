@@ -1,0 +1,18 @@
+﻿# Windows
+Thumbs.db
+Desktop.ini
+
+# Editors
+.vscode/
+.idea/
+
+# Python/runtime artifacts if introduced later
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Temporary files
+*.tmp
+*.temp
