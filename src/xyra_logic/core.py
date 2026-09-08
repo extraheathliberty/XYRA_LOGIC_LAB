@@ -1,5 +1,6 @@
 ﻿from __future__ import annotations
 
+from dataclasses import dataclass
 from itertools import product
 from typing import Mapping, Sequence
 
@@ -132,3 +133,62 @@ def is_valid_argument(
             return False
 
     return True
+
+
+@dataclass(frozen=True)
+class ArgumentResult:
+    """Structured deterministic result for formal argument validity."""
+
+    status: str
+    countermodel: tuple[tuple[str, bool], ...] | None
+    premise_values: tuple[bool, ...] | None
+    conclusion_value: bool | None
+
+
+def analyze_argument(
+    premises: Sequence[Expression],
+    conclusion: Expression,
+) -> ArgumentResult:
+    """
+    Return a structured validity result.
+
+    INVALID_ARGUMENT includes the first deterministic countermodel:
+    every premise is True and the conclusion is False.
+    """
+
+    all_names: set[str] = set(symbols(conclusion))
+
+    for premise in premises:
+        all_names.update(symbols(premise))
+
+    names = tuple(sorted(all_names))
+
+    for assignment in _all_assignments(names):
+        premise_values = tuple(
+            evaluate(premise, assignment)
+            for premise in premises
+        )
+        conclusion_value = evaluate(
+            conclusion,
+            assignment,
+        )
+
+        if all(premise_values) and not conclusion_value:
+            countermodel = tuple(
+                (name, assignment[name])
+                for name in names
+            )
+
+            return ArgumentResult(
+                status="INVALID_ARGUMENT",
+                countermodel=countermodel,
+                premise_values=premise_values,
+                conclusion_value=conclusion_value,
+            )
+
+    return ArgumentResult(
+        status="VALID_ARGUMENT",
+        countermodel=None,
+        premise_values=None,
+        conclusion_value=None,
+    )

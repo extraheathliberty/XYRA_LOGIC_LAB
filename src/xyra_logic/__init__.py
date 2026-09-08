@@ -1,4 +1,6 @@
 ﻿from .core import (
+    ArgumentResult,
+    analyze_argument,
     evaluate,
     is_contradiction,
     is_tautology,
@@ -24,6 +26,8 @@ __all__ = [
     "Or",
     "Implies",
     "Biconditional",
+    "ArgumentResult",
+    "analyze_argument",
     "evaluate",
     "symbols",
     "truth_table",
