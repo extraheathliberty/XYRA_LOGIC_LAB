@@ -17,6 +17,10 @@ from .expressions import (
     Not,
     Or,
 )
+from .rules import (
+    RuleApplicationResult,
+    validate_rule_application,
+)
 
 __all__ = [
     "Expression",
@@ -34,4 +38,6 @@ __all__ = [
     "is_tautology",
     "is_contradiction",
     "is_valid_argument",
+    "RuleApplicationResult",
+    "validate_rule_application",
 ]
