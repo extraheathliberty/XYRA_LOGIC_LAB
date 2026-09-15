@@ -17,6 +17,12 @@ from .expressions import (
     Not,
     Or,
 )
+from .assurance import (
+    ReasoningAssurancePacketError,
+    expression_from_wire,
+    expression_to_wire,
+    replay_reasoning_assurance_packet,
+)
 from .derivation import (
     DerivationStep,
     DerivationStepResult,
@@ -43,6 +49,10 @@ __all__ = [
     "is_tautology",
     "is_contradiction",
     "is_valid_argument",
+    "replay_reasoning_assurance_packet",
+    "expression_to_wire",
+    "expression_from_wire",
+    "ReasoningAssurancePacketError",
     "DerivationStep",
     "DerivationStepResult",
     "replay_derivation_step",
