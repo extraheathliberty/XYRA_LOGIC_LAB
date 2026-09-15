@@ -17,6 +17,11 @@ from .expressions import (
     Not,
     Or,
 )
+from .derivation import (
+    DerivationStep,
+    DerivationStepResult,
+    replay_derivation_step,
+)
 from .rules import (
     RuleApplicationResult,
     validate_rule_application,
@@ -38,6 +43,9 @@ __all__ = [
     "is_tautology",
     "is_contradiction",
     "is_valid_argument",
+    "DerivationStep",
+    "DerivationStepResult",
+    "replay_derivation_step",
     "RuleApplicationResult",
     "validate_rule_application",
 ]
