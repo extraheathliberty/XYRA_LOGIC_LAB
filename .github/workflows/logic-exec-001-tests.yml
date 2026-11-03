@@ -1,0 +1,27 @@
+name: LOGIC-EXEC-001 tests
+
+on:
+  pull_request:
+    paths:
+      - 'src/xyra_logic/**'
+      - 'tests/**'
+      - 'fixtures/logic_exec_001_regression.json'
+      - 'schemas/logic_validation_*.schema.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run LOGIC-EXEC-001 acceptance suite
+        env:
+          PYTHONPATH: src
+        run: python -m unittest discover -s tests -v
