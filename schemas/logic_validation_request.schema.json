@@ -1,0 +1,249 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://xyradata.local/schemas/logic_validation_request.schema.json",
+  "title": "LOGIC-EXEC-001 validation request",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "validation_id",
+    "matter_id",
+    "runtime_service",
+    "proposition",
+    "proposition_decomposition",
+    "evidence",
+    "proposed_choice",
+    "proposed_rationale",
+    "authority_ceiling"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "LOGIC-EXEC-001/request/v1"
+    },
+    "validation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "matter_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "correlation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runtime_service": {
+      "type": "string",
+      "minLength": 1
+    },
+    "proposition": {
+      "type": "string",
+      "minLength": 1
+    },
+    "proposition_decomposition": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "environment": {
+          "type": "string"
+        },
+        "decision_type": {
+          "type": "string"
+        },
+        "authority_level": {
+          "type": "string"
+        },
+        "timing": {
+          "type": "string"
+        },
+        "reversibility": {
+          "type": "string"
+        },
+        "decision_threshold": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "criterion_analysis": {
+      "type": "object",
+      "properties": {
+        "decision_threshold": {
+          "type": "string"
+        },
+        "necessary_conditions": {
+          "$ref": "#/$defs/conditions"
+        },
+        "sufficient_conditions": {
+          "$ref": "#/$defs/conditions"
+        },
+        "blocking_conditions": {
+          "$ref": "#/$defs/conditions"
+        },
+        "downstream_criteria": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "authority_dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "relevant_criteria": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "excluded_criteria": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "distinctions": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidence"
+      }
+    },
+    "rationale_evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "proposed_choice": {
+      "enum": [
+        "YES",
+        "NO",
+        "ABSTAIN"
+      ]
+    },
+    "proposed_rationale": {
+      "type": "string"
+    },
+    "authority_ceiling": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "condition": {
+      "type": "object",
+      "required": [
+        "statement"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "state": {
+          "enum": [
+            "SATISFIED",
+            "NOT_SATISFIED",
+            "UNKNOWN",
+            "TRUE",
+            "FALSE",
+            "PASS",
+            "FAIL",
+            "UNRESOLVED",
+            "INDETERMINATE"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "conditions": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "$ref": "#/$defs/condition"
+          }
+        ]
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "anyOf": [
+        {
+          "required": [
+            "evidence_id"
+          ]
+        },
+        {
+          "required": [
+            "source_id"
+          ]
+        }
+      ],
+      "properties": {
+        "evidence_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "enum": [
+            "SUPPORTS_CURRENT_ACTION",
+            "BLOCKS_CURRENT_ACTION",
+            "SUPPORTS_DOWNSTREAM_ACTION",
+            "BLOCKS_DOWNSTREAM_ACTION",
+            "AUTHORITY_CONSTRAINT",
+            "CONTEXT_ONLY",
+            "IRRELEVANT_TO_CURRENT_PROPOSITION",
+            "INSUFFICIENT_TO_CLASSIFY"
+          ]
+        },
+        "target": {
+          "type": "string"
+        },
+        "polarity": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

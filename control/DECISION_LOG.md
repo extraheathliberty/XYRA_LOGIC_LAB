@@ -1,4 +1,4 @@
-﻿# DECISION LOG
+# DECISION LOG
 
 ## D-001 - Canonical Project Name
 
@@ -25,3 +25,26 @@ that those premises are factually true.
 XYRA_LOGIC_LAB is general-purpose.
 
 M5V is an applied benchmark, not the owner of the system.
+
+## D-005 - LOGIC-EXEC-001 is a separately authorized execution node
+
+Human Committee order LOGIC-EXEC-001 (3 November 2026) authorizes bounded Executive
+reasoning-validation design, implementation, testing and internal qualification.
+
+This does not create production admission.
+
+## D-006 - Logic validates; Executives judge
+
+Logic Lab may reject a deliberation for logical inconsistency but may not cast, alter,
+or replace an Executive vote.
+
+## D-007 - Current criterion must remain distinct from downstream criterion
+
+A stricter downstream criterion may not silently become the operative threshold for the
+current proposition.
+
+## D-008 - Live historical integration requires source artifacts
+
+AIR_001-AIR_003 historical outputs are not to be reconstructed from incomplete
+descriptions. Actual Runtime-owned artifacts are required for live/historical
+regression qualification.
