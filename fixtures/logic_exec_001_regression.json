@@ -1,0 +1,31 @@
+{
+  "schema_version": "LOGIC-EXEC-001/regression/v1",
+  "source": "LOGIC-EXEC-001 execution order, section 11",
+  "historical_record_policy": "Do not rewrite historical qualification records.",
+  "cases": [
+    {
+      "case_id": "AIR_004_CRITERION_SUBSTITUTION_PATTERN",
+      "status": "KNOWN_FAILURE_PATTERN",
+      "proposition_class": "bounded internal qualification",
+      "excluded_or_downstream_criterion": "production readiness",
+      "failure": "decision threshold reuses excluded stricter criterion",
+      "expected_logic_result": "FAIL",
+      "expected_finding": "criterion_substitution"
+    },
+    {
+      "case_id": "AIR_001",
+      "status": "SOURCE_ARTIFACT_REQUIRED",
+      "note": "The execution order says AIR_001 contains a prior faulty-reasoning form not blocked by the initial validator, but does not reproduce the full deliberation."
+    },
+    {
+      "case_id": "AIR_002",
+      "status": "SOURCE_ARTIFACT_REQUIRED",
+      "note": "The execution order identifies AIR_002 for regression use where available; no verbatim artifact is reconstructed here."
+    },
+    {
+      "case_id": "AIR_003",
+      "status": "SOURCE_ARTIFACT_REQUIRED",
+      "note": "The execution order identifies AIR_003 for regression use where available; no verbatim artifact is reconstructed here."
+    }
+  ]
+}
