@@ -38,7 +38,7 @@ jobs:
             const id = m[1];
             const origin = await github.paginate(github.rest.issues.listComments, {
               owner: 'extraheathliberty', repo: 'XYRA_AGENT_COMMS_CENTRE_LAB',
-              issue_number: 28, per_page: 100
+              issue_number: 32, per_page: 100
             });
             const matching = origin.some(c => c.user?.login === 'xyra-agcom-cc-bridge[bot]' &&
               c.body?.startsWith('XYRA-AGCOM-LOGIC/v1 PING ' + id + '\n'));
