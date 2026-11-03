@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://xyradata.local/schemas/logic_validation_response.schema.json",
+  "title": "LOGIC-EXEC-001 validation response",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "validation_id",
+    "matter_id",
+    "correlation_id",
+    "runtime_service",
+    "status",
+    "normalized_proposition",
+    "criterion_analysis",
+    "evidence_classification",
+    "logic_findings",
+    "expected_vote",
+    "proposed_vote",
+    "vote_consistency",
+    "explanation",
+    "authority_ceiling",
+    "institutional_decision",
+    "authority_expansion"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "LOGIC-EXEC-001/response/v1"
+    },
+    "validation_id": {
+      "type": "string"
+    },
+    "matter_id": {
+      "type": "string"
+    },
+    "correlation_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "runtime_service": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "PASS_WITH_FINDINGS",
+        "FAIL",
+        "INDETERMINATE"
+      ]
+    },
+    "normalized_proposition": {
+      "type": "object"
+    },
+    "criterion_analysis": {
+      "type": "object"
+    },
+    "evidence_classification": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "evidence_id",
+          "role"
+        ]
+      }
+    },
+    "logic_findings": {
+      "type": "object",
+      "required": [
+        "criterion_substitution",
+        "threshold_conflict",
+        "scope_expansion",
+        "relevant_excluded_conflict",
+        "unsupported_inference",
+        "necessary_sufficient_error",
+        "contradiction",
+        "evidence_role_error"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "criterion_substitution": {
+          "type": "boolean"
+        },
+        "threshold_conflict": {
+          "type": "boolean"
+        },
+        "scope_expansion": {
+          "type": "boolean"
+        },
+        "relevant_excluded_conflict": {
+          "type": "boolean"
+        },
+        "unsupported_inference": {
+          "type": "boolean"
+        },
+        "necessary_sufficient_error": {
+          "type": "boolean"
+        },
+        "contradiction": {
+          "type": "boolean"
+        },
+        "evidence_role_error": {
+          "type": "boolean"
+        }
+      }
+    },
+    "expected_vote": {
+      "enum": [
+        "YES",
+        "NO",
+        "ABSTAIN"
+      ]
+    },
+    "proposed_vote": {
+      "enum": [
+        "YES",
+        "NO",
+        "ABSTAIN"
+      ]
+    },
+    "vote_consistency": {
+      "enum": [
+        "CONSISTENT",
+        "INCONSISTENT"
+      ]
+    },
+    "explanation": {
+      "type": "string"
+    },
+    "authority_ceiling": {
+      "type": "string"
+    },
+    "institutional_decision": {
+      "const": false
+    },
+    "authority_expansion": {
+      "const": false
+    }
+  }
+}
