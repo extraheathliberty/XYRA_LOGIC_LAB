@@ -1,0 +1,60 @@
+{
+  "schema_version": "LOGIC-LEARN-001/request/v1",
+  "learner_id": "EII-STUDENT-001",
+  "source_work_id": "EII-STUDENT001-FOUR-BOOK-INTEGRATION-001",
+  "source_authority_ref": "EII-CLASSICAL-LEARNING-PILOT-001 / EII-STUDENT001-FOUR-BOOK-CAT-001",
+  "task": "Assess the synthetic coastal-facility case using the admitted four-book integrated context while preserving provenance, competing hypotheses, uncertainty, and contrary explanations.",
+  "observed_facts": [
+    "infrastructure work exists",
+    "reports allege a concealed capability",
+    "two reports share an intermediary",
+    "implementation delays occurred",
+    "no visible rival response is observed",
+    "competing factions use incompatible labels"
+  ],
+  "not_established": [
+    "covert military purpose",
+    "hostile intent",
+    "sabotage",
+    "successful deception",
+    "adversary belief",
+    "report independence"
+  ],
+  "competing_hypotheses": [
+    "ordinary commercial or civil infrastructure work",
+    "dual-use capability without hostile intent",
+    "deliberate concealed capability preparation",
+    "bureaucratic or logistical friction causing delay",
+    "internal political conflict causing delay",
+    "hostile interference or sabotage",
+    "misunderstanding amplified through dependent reporting"
+  ],
+  "source_dependencies": [
+    "The two reports sharing an intermediary are not independent corroboration; their common origin must be represented before assigning evidentiary weight."
+  ],
+  "information_gaps": [
+    "engineering specifications",
+    "funding and commissioning authority",
+    "independent source access",
+    "maintenance patterns",
+    "logistics requirements",
+    "decision records around the delays"
+  ],
+  "next_collection": [
+    "Seek engineering specifications, funding and commissioning authority, independent source access, maintenance patterns, logistics requirements, decision records around the delays, and observations capable of distinguishing ordinary dual-use development from concealed operational use."
+  ],
+  "premises": [],
+  "disconfirming_evidence": [],
+  "claimed_conclusion": "Deliberate concealment is possible, but the pattern does not establish it; a coherent deception theory cannot substitute for discriminating evidence.",
+  "terminal_state": "UNKNOWN / ACCESS CONSTRAINED",
+  "source_refs": [
+    "EII-CC-0006",
+    "EII-CC-0001",
+    "EII-CC-0004",
+    "EII-CC-0002"
+  ],
+  "historical_result": "PASS / BOUNDED / EXPLORATORY / NON_BLIND",
+  "formal_blind_delta": "NOT_RUN",
+  "formal_qualification": "NOT_GRANTED",
+  "sulm_appointment": "NOT_AUTHORIZED"
+}
