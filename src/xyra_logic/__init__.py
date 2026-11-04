@@ -26,3 +26,16 @@ from .runtime_integration import (
     build_runtime_validation_request,
     validate_runtime_deliberation,
 )
+
+
+from .standard import (
+    LogicStandardValidationError,
+    STANDARD_VERSION,
+    assess_standard_conformance,
+)
+
+__all__ += [
+    "LogicStandardValidationError",
+    "STANDARD_VERSION",
+    "assess_standard_conformance",
+]

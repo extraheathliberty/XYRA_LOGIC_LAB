@@ -1,0 +1,51 @@
+{
+  "schema_version": "LOGIC-LEARN-001/request/v1",
+  "learner_id": "EII-STUDENT-001",
+  "source_work_id": "LOGAI-1.3-STUDENT001-BLIND-20261104-001",
+  "source_authority_ref": "EII #13 / Runtime #10 / workflow 41853978448",
+  "task": "Assess the held-out synthetic regional public-service network outage without assuming hostile attribution.",
+  "observed_facts": [
+    "Three offices report authentication failures.",
+    "Two offices use the same telecom provider; the third uses a different provider.",
+    "All three depend on the same cloud identity service.",
+    "One provider issued a maintenance notice covering part of the period.",
+    "A social-media account claims a coordinated hostile cyber campaign, but provides no technical evidence.",
+    "One internal status report repeats information from the social-media claim without independent verification."
+  ],
+  "not_established": [
+    "The exact nature of the hostile cyber campaign, its duration, or the specific actions taken by the attackers."
+  ],
+  "competing_hypotheses": [
+    "The social-media account is a false alarm.",
+    "The social-media account is a false alarm, but the attackers are still active.",
+    "The social-media account is a false alarm, but the attackers are not active."
+  ],
+  "source_dependencies": [
+    "The social-media account's claims are based on the social media platform's reputation and user behavior.",
+    "The telecom provider's maintenance notice is based on the provider's reputation and service history.",
+    "The cloud identity service's reputation and service history are based on the service provider's reputation and service history."
+  ],
+  "information_gaps": [
+    "The exact nature of the hostile cyber campaign, its duration, or the specific actions taken by the attackers.",
+    "The exact nature of the social-media account's claims, its source, and its credibility.",
+    "The exact nature of the telecom provider's maintenance notice, its source, and its credibility.",
+    "The exact nature of the cloud identity service's reputation and service history, its source, and its credibility."
+  ],
+  "next_collection": [
+    "Review the social-media account's claims for any additional information or evidence.",
+    "Review the telecom provider's maintenance notice for any additional information or evidence.",
+    "Review the cloud identity service's reputation and service history for any additional information or evidence."
+  ],
+  "premises": [
+    "The social-media account claims a coordinated hostile cyber campaign, but provides no technical evidence.",
+    "The telecom provider's maintenance notice is based on the provider's reputation and service history.",
+    "The cloud identity service's reputation and service history are based on the service provider's reputation and service history."
+  ],
+  "disconfirming_evidence": [
+    "The social-media account's claims are based on the social media platform's reputation and user behavior.",
+    "The telecom provider's maintenance notice is based on the provider's reputation and service history.",
+    "The cloud identity service's reputation and service history are based on the service provider's reputation and service history."
+  ],
+  "claimed_conclusion": "The social-media account is a false alarm.",
+  "terminal_state": "UNKNOWN / ACCESS CONSTRAINED"
+}
