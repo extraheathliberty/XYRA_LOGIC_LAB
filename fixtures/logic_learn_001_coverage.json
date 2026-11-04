@@ -1,0 +1,54 @@
+{
+  "coverage_id": "LOGIC-LEARN-001-COVERAGE-001",
+  "learner_id": "EII-STUDENT-001",
+  "cases": [
+    {
+      "source_ref": "EII-CC-0006",
+      "title": "The Riddle of the Sands",
+      "evaluation_record": "EII-TEACHER-STUDENT001-BOOK1-ASSESSMENT-001",
+      "result": "PASS_WITH_MINOR_FINDING",
+      "score": "63/64",
+      "mode": "INSTRUCTIONAL_NON_INDEPENDENT",
+      "formal_blind": false,
+      "formal_qualification": false
+    },
+    {
+      "source_ref": "EII-CC-0001",
+      "title": "The Art of War",
+      "evaluation_record": "EII-STUDENT001-WAVE2-SUNZI-POST-001",
+      "result": "PASS",
+      "score": null,
+      "mode": "EXPLORATORY_NON_BLIND",
+      "formal_blind": false,
+      "formal_qualification": false
+    },
+    {
+      "source_ref": "EII-CC-0004",
+      "title": "On War",
+      "evaluation_record": "EII-STUDENT001-WAVE2-CLAUSEWITZ-POST-001",
+      "result": "PASS",
+      "score": null,
+      "mode": "EXPLORATORY_NON_BLIND",
+      "formal_blind": false,
+      "formal_qualification": false
+    },
+    {
+      "source_ref": "EII-CC-0002",
+      "title": "The History of the Peloponnesian War",
+      "evaluation_record": "EII-STUDENT001-WAVE2-THUCYDIDES-POST-001",
+      "result": "PASS",
+      "score": null,
+      "mode": "EXPLORATORY_NON_BLIND",
+      "formal_blind": false,
+      "formal_qualification": false
+    }
+  ],
+  "integration_record": "EII-STUDENT001-FOUR-BOOK-INTEGRATION-001",
+  "integration_cat": "EII-STUDENT001-FOUR-BOOK-CAT-001",
+  "integration_cat_result": "10/10 PASS / BOUNDED / EXPLORATORY / NON_BLIND",
+  "formal_blind_delta": "NOT_RUN",
+  "learning_delta_status": "NOT_ESTABLISHABLE_RETROACTIVELY",
+  "current_blind_capability_status": "PENDING_RUNTIME_EXECUTION",
+  "formal_qualification": "NOT_GRANTED",
+  "sulm_appointment": "NOT_AUTHORIZED"
+}
