@@ -1,0 +1,32 @@
+{
+  "B1-P11": {
+    "source_ref": "EII-CC-0006",
+    "statement": "Preserve source modality; do not promote tentative language into established fact without independent support.",
+    "modality": "assertive",
+    "authorized": true
+  },
+  "B1-TENTATIVE-QUAY": {
+    "source_ref": "EII-CC-0006",
+    "statement": "The source phrase about a quay arrangement is tentative rather than established.",
+    "modality": "tentative",
+    "authorized": true
+  },
+  "SUNZI-P02": {
+    "source_ref": "EII-CC-0001",
+    "statement": "Deception can make observable appearance an unreliable proxy for capability or intention, but ambiguity alone does not prove deception.",
+    "modality": "assertive",
+    "authorized": true
+  },
+  "CLAUSEWITZ-P04": {
+    "source_ref": "EII-CC-0004",
+    "statement": "Friction separates plans from execution; ordinary implementation failures must be tested before hostile attribution.",
+    "modality": "assertive",
+    "authorized": true
+  },
+  "THUCYDIDES-P01": {
+    "source_ref": "EII-CC-0002",
+    "statement": "Source agreement must be tested for independence, access, memory limits, and transmission path.",
+    "modality": "assertive",
+    "authorized": true
+  }
+}
