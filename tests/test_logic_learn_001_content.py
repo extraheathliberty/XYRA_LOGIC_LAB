@@ -49,7 +49,8 @@ class TestLogicLearn001Content(unittest.TestCase):
         ready = assess_learning_qualification_readiness(
             source_grounding_pass=True,
             content_fidelity_pass=True,
-            validator_blind_benchmark_pass=True,\n            learner_blind_delta_pass=True,
+            validator_blind_benchmark_pass=True,
+            learner_blind_delta_pass=True,
             positive_benchmark_pass=True,
             negative_benchmark_rejected=True,
             covered_learning_cases=4,
@@ -64,10 +65,12 @@ class TestLogicLearn001Content(unittest.TestCase):
         blocked = assess_learning_qualification_readiness(
             source_grounding_pass=True,
             content_fidelity_pass=True,
-            validator_blind_benchmark_pass=True,\n            learner_blind_delta_pass=True,
+            validator_blind_benchmark_pass=True,
+            learner_blind_delta_pass=True,
             positive_benchmark_pass=True,
             negative_benchmark_rejected=True,
-            covered_learning_cases=4,\n            learner_blind_delta_pass=False,
+            covered_learning_cases=4,
+            learner_blind_delta_pass=False,
         )
         self.assertEqual(blocked["status"], "NOT_READY")
         self.assertIn("learner_blind_delta", blocked["blockers"])
