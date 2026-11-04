@@ -2,7 +2,7 @@
 
 Programme: LOGAI-1.4
 Version: XYRA_LOGIC_STANDARD-001/v1
-Status: QUALIFICATION IN PROGRESS
+Status: INTERNAL PASS
 
 ## Standard scope
 Initial profiles:
@@ -32,9 +32,11 @@ Independent bounded control check:
 - known-good benchmark remains accepted by the new semantic checks;
 - preserved Student-001 blind response triggers multiple semantic failures.
 
-Canonical repository CI:
-- Logic Lab PR #20 workflow currently queued.
-Independent repository CI:
-- EII workflow 41862608037 currently queued.
+Independent executable qualification:
+- directly affected Learning regressions: 9/9 PASS;
+- XYRA_LOGIC_STANDARD-001 acceptance suite: 6/6 PASS;
+- total: 15/15 PASS.
 
-Final INTERNAL PASS is withheld until a full test-suite workflow completes successfully.
+GitHub-hosted Logic Lab and EII workflow runs remained queued during degraded Actions performance and were not treated as pass/fail evidence.
+
+Final disposition: XYRA_LOGIC_STANDARD-001/v1 INTERNAL PASS.
