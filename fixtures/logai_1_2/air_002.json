@@ -1,0 +1,31 @@
+{
+  "schema_version": "LOGAI-1.2/runtime-artifact/v1",
+  "source_qualification": "ALL8-PROPOSITION-FIDELITY-002",
+  "matter_id": "HOST-FIDELITY-INTERNAL_CYCLE-136a1c9411",
+  "runtime_service": "AIR_002",
+  "choice": "NO",
+  "rationale": "The evidence explicitly states that a containment finding remains unresolved (FID-4) and the current qualification dataset is insufficient for broad production generalization (FID-5). Additionally, the Human Committee disposition remains required for any production admission or institutional adoption (FID-6), which means the internal qualification cycle does not constitute a production-admission decision. Therefore, the proposition fails to meet the threshold of being a viable internal qualification cycle under the existing non-production restrictions because it does not resolve the unresolved containment finding and lacks sufficient evidence for production generalization.",
+  "evidence_refs": [
+    "FID-4",
+    "FID-5",
+    "FID-6"
+  ],
+  "confidence": 0.95,
+  "authenticated": true,
+  "replay_reserved": true,
+  "institutional_decision": false,
+  "proposition_decomposition": {
+    "proposition_summary": "Should XYRA continue one additional bounded internal qualification cycle for the current Executive-table system under the existing non-production restrictions?",
+    "decision_threshold": "The current evidence establishes that the additional internal qualification cycle is not sufficient for production-readiness or institutional adoption.",
+    "relevant_criteria": [
+      "Containment finding resolution",
+      "Sufficient qualification dataset for production generalization",
+      "Human Committee disposition requirement"
+    ],
+    "excluded_stricter_criteria": [
+      "Production-readiness",
+      "Institutional adoption",
+      "External deployment or stakeholder claims"
+    ]
+  }
+}
