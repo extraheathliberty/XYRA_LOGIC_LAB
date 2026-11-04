@@ -1,0 +1,26 @@
+{
+  "EII-CC-0006": {
+    "title": "The Riddle of the Sands",
+    "authorized": true,
+    "authority_ref": "EII-STUDENT001-FOUR-BOOK-INTEGRATION-CONTEXT-V1",
+    "artifact_hash": "ebfe883f66ef9a45afae363e0d25b4669d5ac592e342e4c81d3c884749cc9dca"
+  },
+  "EII-CC-0001": {
+    "title": "The Art of War",
+    "authorized": true,
+    "authority_ref": "EII-STUDENT001-FOUR-BOOK-INTEGRATION-CONTEXT-V1",
+    "artifact_hash": "304df72d7be92c45dc6169a1410265776695528f3e1f6a20adca2c6ea5cea733"
+  },
+  "EII-CC-0004": {
+    "title": "On War",
+    "authorized": true,
+    "authority_ref": "EII-STUDENT001-FOUR-BOOK-INTEGRATION-CONTEXT-V1",
+    "artifact_hash": "e18e0e36a2176b839b46b9ca47466891ffbcc56efaed280e4239249438c59268"
+  },
+  "EII-CC-0002": {
+    "title": "The History of the Peloponnesian War",
+    "authorized": true,
+    "authority_ref": "EII-STUDENT001-FOUR-BOOK-INTEGRATION-CONTEXT-V1",
+    "artifact_hash": "be2ececcdfa4d8a3dc36f7dbba004d7f6aba37cac08470edba3d4050ae98f1a7"
+  }
+}
