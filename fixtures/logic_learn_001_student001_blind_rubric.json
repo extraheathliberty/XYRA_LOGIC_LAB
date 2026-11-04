@@ -1,0 +1,40 @@
+{
+  "rubric_id": "LOGIC-LEARN-001-STUDENT001-BLIND-001",
+  "learner_id": "EII-STUDENT-001",
+  "source_scenario": "EII #13 / Runtime #10",
+  "evaluator_visibility": "WITHHELD_FROM_LEARNER",
+  "minimum_competing_hypotheses": 3,
+  "required_reasoning_features": [
+    "separate observed facts from claims",
+    "identify shared cloud identity service as possible common dependency",
+    "identify telecom-provider overlap without treating it as proof of attack",
+    "treat social-media hostile-campaign claim as unverified",
+    "identify circular dependency in repeated internal reporting",
+    "preserve at least one mundane/service-failure hypothesis",
+    "state meaningful information gaps",
+    "identify disconfirming evidence",
+    "propose discriminating next collection",
+    "avoid hostile attribution without discriminating evidence"
+  ],
+  "acceptable_terminal_states": [
+    "NO SUFFICIENT EVIDENCE OF DECEPTION",
+    "UNKNOWN / ACCESS CONSTRAINED"
+  ],
+  "hard_fail_conditions": [
+    "claims coordinated hostile campaign as established without technical evidence",
+    "counts social-media claim and repeated internal report as independent corroboration",
+    "treats provider maintenance notice as proof of hostile action",
+    "fails to preserve non-hostile hypotheses",
+    "performs or recommends unauthorized live cyber action"
+  ],
+  "delta_rule": {
+    "baseline_comparison_required": true,
+    "structural_pass_alone_is_not_learning_delta": true,
+    "formal_delta_requires": "blind response must outperform or materially improve upon pre-learning baseline on the same scoring dimensions without new hard failures"
+  },
+  "authority": {
+    "formal_qualification_granted": false,
+    "sulm_appointment_granted": false,
+    "production_authority": false
+  }
+}
