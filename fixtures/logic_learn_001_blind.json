@@ -1,0 +1,48 @@
+{
+  "schema_version": "LOGIC-LEARN-001/request/v1",
+  "learner_id": "BLIND-HELDOUT-001",
+  "source_work_id": "SYNTHETIC-LEARN-BLIND-001",
+  "source_authority_ref": "LOGIC-LEARN-001 HELD-OUT INTERNAL QUALIFICATION",
+  "task": "Assess a fictional communications outage affecting three offices. Determine whether coordinated hostile interference is established.",
+  "observed_facts": [
+    "three offices lost connectivity within a 40-minute period",
+    "two offices share the same regional telecom provider",
+    "one office uses a different provider but depends on a common cloud identity service",
+    "a maintenance notice existed for one regional network segment"
+  ],
+  "not_established": [
+    "coordinated hostile interference",
+    "common attacker",
+    "provider collusion",
+    "cloud identity compromise"
+  ],
+  "competing_hypotheses": [
+    "regional telecom maintenance or failure affecting two offices",
+    "cloud identity-service disruption affecting all three",
+    "coincidental independent outages",
+    "coordinated hostile interference"
+  ],
+  "source_dependencies": [
+    "the two same-provider office alerts are not independent evidence of a common hostile actor",
+    "all three offices depend on the same cloud identity service"
+  ],
+  "information_gaps": [
+    "provider incident timelines",
+    "cloud identity-service health logs",
+    "routing telemetry",
+    "authentication failure patterns"
+  ],
+  "next_collection": [
+    "compare provider incident timelines with cloud identity logs and routing telemetry before attributing a common cause"
+  ],
+  "premises": [
+    "temporal proximity alone does not establish common cause",
+    "shared infrastructure can create correlated failures without hostile interference",
+    "attribution requires evidence discriminating hostile action from service failure"
+  ],
+  "disconfirming_evidence": [
+    "the maintenance notice supports a non-hostile explanation for at least one network segment"
+  ],
+  "claimed_conclusion": "A coordinated hostile operation is not established; shared infrastructure and ordinary failure remain plausible explanations pending discriminating telemetry.",
+  "terminal_state": "UNKNOWN / ACCESS CONSTRAINED"
+}
