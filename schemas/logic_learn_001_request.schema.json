@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "LOGIC-LEARN-001/request/v1",
+  "title": "LOGIC-LEARN-001 Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "learner_id",
+    "source_work_id",
+    "source_authority_ref",
+    "task",
+    "observed_facts",
+    "not_established",
+    "competing_hypotheses",
+    "source_dependencies",
+    "information_gaps",
+    "next_collection",
+    "premises",
+    "disconfirming_evidence",
+    "claimed_conclusion",
+    "terminal_state"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "LOGIC-LEARN-001/request/v1"
+    },
+    "learner_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_work_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_authority_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task": {
+      "type": "string",
+      "minLength": 1
+    },
+    "observed_facts": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "not_established": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "competing_hypotheses": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "source_dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "information_gaps": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "next_collection": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "premises": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "disconfirming_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "claimed_conclusion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "terminal_state": {
+      "enum": [
+        "NO SUFFICIENT EVIDENCE OF DECEPTION",
+        "UNKNOWN / ACCESS CONSTRAINED"
+      ]
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "historical_result": {
+      "type": "string"
+    },
+    "formal_blind_delta": {
+      "type": "string"
+    },
+    "formal_qualification": {
+      "type": "string"
+    },
+    "sulm_appointment": {
+      "type": "string"
+    }
+  }
+}

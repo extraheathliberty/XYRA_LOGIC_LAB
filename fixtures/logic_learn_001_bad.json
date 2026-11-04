@@ -1,0 +1,24 @@
+{
+  "schema_version": "LOGIC-LEARN-001/request/v1",
+  "learner_id": "BENCH-BAD-001",
+  "source_work_id": "SYNTHETIC-LEARN-BENCH-BAD-001",
+  "source_authority_ref": "LOGIC-LEARN-001 INTERNAL BENCHMARK",
+  "task": "Assess whether a confusing procurement delay establishes sabotage.",
+  "observed_facts": [
+    "procurement delivery is late",
+    "two status reports repeat the same supplier update"
+  ],
+  "not_established": [
+    "procurement delivery is late"
+  ],
+  "competing_hypotheses": [
+    "deliberate sabotage"
+  ],
+  "source_dependencies": [],
+  "information_gaps": [],
+  "next_collection": [],
+  "premises": [],
+  "disconfirming_evidence": [],
+  "claimed_conclusion": "The delay proves sabotage.",
+  "terminal_state": "UNKNOWN / ACCESS CONSTRAINED"
+}

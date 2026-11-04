@@ -1,0 +1,44 @@
+{
+  "schema_version": "LOGIC-LEARN-001/request/v1",
+  "learner_id": "BENCH-GOOD-001",
+  "source_work_id": "SYNTHETIC-LEARN-BENCH-GOOD-001",
+  "source_authority_ref": "LOGIC-LEARN-001 INTERNAL BENCHMARK",
+  "task": "Assess whether a confusing procurement delay establishes sabotage.",
+  "observed_facts": [
+    "procurement delivery is late",
+    "two status reports repeat the same supplier update",
+    "one component failed inspection"
+  ],
+  "not_established": [
+    "sabotage",
+    "hostile intent",
+    "independent corroboration"
+  ],
+  "competing_hypotheses": [
+    "ordinary supplier delay",
+    "quality-control failure",
+    "internal scheduling error",
+    "deliberate sabotage"
+  ],
+  "source_dependencies": [
+    "two status reports derive from the same supplier update"
+  ],
+  "information_gaps": [
+    "supplier production logs",
+    "inspection records",
+    "independent shipment tracking"
+  ],
+  "next_collection": [
+    "obtain supplier production logs and independent shipment tracking"
+  ],
+  "premises": [
+    "delay alone is compatible with multiple causes",
+    "dependent reports do not create independent corroboration",
+    "failed inspection is direct evidence of a quality problem but not intent"
+  ],
+  "disconfirming_evidence": [
+    "the failed component provides a mundane explanation for at least part of the delay"
+  ],
+  "claimed_conclusion": "Sabotage remains possible but is not established; mundane explanations remain viable and should be discriminated with further evidence.",
+  "terminal_state": "UNKNOWN / ACCESS CONSTRAINED"
+}
