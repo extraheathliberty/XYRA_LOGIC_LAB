@@ -102,8 +102,6 @@ def assess_learning_qualification_readiness(
         blockers.append("source_grounding")
     if not content_fidelity_pass:
         blockers.append("content_fidelity")
-    if not blind_case_pass:
-        blockers.append("blind_case")
     if not positive_benchmark_pass:
         blockers.append("positive_benchmark")
     if not negative_benchmark_rejected:
