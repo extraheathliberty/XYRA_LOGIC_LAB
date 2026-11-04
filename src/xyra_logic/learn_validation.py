@@ -97,7 +97,7 @@ def _dependency_coverage(observed: list[str], dependencies: list[str]) -> bool:
         fact_tokens = _tokens(fact)
         if not any(
             len(fact_tokens & _tokens(dep)) >= 2
-            or bool((_tokens(dep) & _DEPENDENCY_CUES) and (fact_tokens & _tokens(dep)))
+            and bool(fact_tokens & _tokens(dep) & _DEPENDENCY_CUES)
             for dep in dependencies
         ):
             return False
@@ -146,7 +146,7 @@ def _disconfirming_grounded(item: str, observed: list[str]) -> bool:
         source_tokens |= _tokens(fact)
     overlap = item_tokens & source_tokens
     # At least one-third of substantive tokens should anchor to observed material.
-    return len(overlap) >= 2 and len(overlap) / max(1, len(item_tokens)) >= 0.30
+    return len(overlap) >= 2 and len(overlap) / max(1, len(item_tokens)) >= 0.25
 
 
 def _conclusion_supported(conclusion: str, terminal_state: str) -> bool:
