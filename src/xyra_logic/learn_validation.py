@@ -116,7 +116,8 @@ def _factual_premise_supported(
     # Reasoning principles may legitimately be general rather than source-factual.
     principle_markers = {
         "compatible", "causes", "corroboration", "intent", "alone", "multiple",
-        "independent", "evidence", "establish",
+        "independent", "evidence", "establish", "can", "could", "may",
+        "correlated", "shared", "requires",
     }
     if premise_tokens & principle_markers:
         return True
