@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "LOGIC-LEARN-001/response/v1",
+  "title": "LOGIC-LEARN-001 Response",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "learner_id",
+    "source_work_id",
+    "source_authority_ref",
+    "task",
+    "status",
+    "logic_findings",
+    "claimed_conclusion",
+    "terminal_state",
+    "knowledge_acquisition_assessed",
+    "reasoning_integrity_assessed",
+    "application_performance_assessed",
+    "formal_qualification",
+    "institutional_decision",
+    "authority_expansion"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "LOGIC-LEARN-001/response/v1"
+    },
+    "learner_id": {
+      "type": "string"
+    },
+    "source_work_id": {
+      "type": "string"
+    },
+    "source_authority_ref": {
+      "type": "string"
+    },
+    "task": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "PASS_WITH_FINDINGS",
+        "FAIL",
+        "INDETERMINATE"
+      ]
+    },
+    "logic_findings": {
+      "type": "object"
+    },
+    "claimed_conclusion": {
+      "type": "string"
+    },
+    "terminal_state": {
+      "type": "string"
+    },
+    "knowledge_acquisition_assessed": {
+      "type": "boolean"
+    },
+    "reasoning_integrity_assessed": {
+      "type": "boolean"
+    },
+    "application_performance_assessed": {
+      "type": "boolean"
+    },
+    "formal_qualification": {
+      "type": "boolean"
+    },
+    "institutional_decision": {
+      "type": "boolean"
+    },
+    "authority_expansion": {
+      "type": "boolean"
+    }
+  }
+}
