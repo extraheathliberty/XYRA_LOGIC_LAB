@@ -80,7 +80,7 @@ class TestLogicExec002RuntimeHandoff(unittest.TestCase):
         self.assertEqual(result["status"], "FAIL")
         self.assertEqual(result["proposed_vote"], "NO")
         self.assertEqual(result["expected_vote"], "ABSTAIN")
-        self.assertTrue(result["logic_findings"]["unsupported_inference"])
+        self.assertTrue(result["logic_findings"]["criterion_substitution"])
         self.assertFalse(result["institutional_decision"])
         self.assertFalse(result["authority_expansion"])
 
