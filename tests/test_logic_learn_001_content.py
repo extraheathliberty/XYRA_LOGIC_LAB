@@ -66,11 +66,10 @@ class TestLogicLearn001Content(unittest.TestCase):
             source_grounding_pass=True,
             content_fidelity_pass=True,
             validator_blind_benchmark_pass=True,
-            learner_blind_delta_pass=True,
+            learner_blind_delta_pass=False,
             positive_benchmark_pass=True,
             negative_benchmark_rejected=True,
             covered_learning_cases=4,
-            learner_blind_delta_pass=False,
         )
         self.assertEqual(blocked["status"], "NOT_READY")
         self.assertIn("learner_blind_delta", blocked["blockers"])
