@@ -49,6 +49,8 @@ def assess_standard_conformance(
             if key not in domain_result:
                 findings.append(f"missing_{key}")
         criteria = domain_result.get("criterion_analysis")
+        if "criterion_analysis" in domain_result and not isinstance(criteria, Mapping):
+            findings.append("invalid_criterion_analysis")
         if isinstance(criteria, Mapping):
             relevant = criteria.get("relevant_criteria", [])
             excluded = criteria.get("excluded_criteria", [])
@@ -71,16 +73,24 @@ def assess_standard_conformance(
                 if isinstance(threshold, str) and norm(threshold) in (downstream_set | excluded_set):
                     findings.append("downstream_criterion_substitution")
         normalized = domain_result.get("normalized_proposition")
+        if "normalized_proposition" in domain_result and not isinstance(normalized, Mapping):
+            findings.append("invalid_normalized_proposition")
         if isinstance(normalized, Mapping):
             source = normalized.get("source_proposition", "")
             environment = normalized.get("environment", "")
             if isinstance(source, str) and isinstance(environment, str):
                 if ("internal" in source.lower() or "non-production" in source.lower()) and environment.lower() == "production":
                     findings.append("proposition_environment_upgrade")
+        if domain_result.get("expected_vote") not in {"YES", "NO", "ABSTAIN"} or domain_result.get("proposed_vote") not in {"YES", "NO", "ABSTAIN"}:
+            findings.append("invalid_vote_value")
         if domain_result.get("vote_consistency") == "CONSISTENT" and (
             domain_result.get("expected_vote") != domain_result.get("proposed_vote")
         ):
             findings.append("vote_consistency_mismatch")
+        if domain_result.get("vote_consistency") == "INCONSISTENT" and (
+            domain_result.get("expected_vote") == domain_result.get("proposed_vote")
+        ):
+            findings.append("vote_inconsistency_mismatch")
         if domain_result.get("vote_consistency") not in {
             "CONSISTENT",
             "INCONSISTENT",
