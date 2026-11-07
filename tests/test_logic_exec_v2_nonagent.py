@@ -74,7 +74,6 @@ class ExecutiveLogicNonAgentRegression(unittest.TestCase):
         self.assertEqual(result["standard_status"], "FAIL")
         self.assertIn("missing_criterion_analysis", result["findings"])
 
-    @unittest.expectedFailure
     def test_production_admission_true_must_be_rejected(self):
         # Current v1 returns output production_admission=False but does not
         # inspect input production_admission=True; masking is not validation.
@@ -82,7 +81,6 @@ class ExecutiveLogicNonAgentRegression(unittest.TestCase):
         value["production_admission"] = True
         self.assertEqual(self.assess(value)["standard_status"], "FAIL")
 
-    @unittest.expectedFailure
     def test_relevant_excluded_overlap_must_be_rejected(self):
         value = packet()
         value["criterion_analysis"]["relevant_criteria"].append(
@@ -90,7 +88,6 @@ class ExecutiveLogicNonAgentRegression(unittest.TestCase):
         )
         self.assertEqual(self.assess(value)["standard_status"], "FAIL")
 
-    @unittest.expectedFailure
     def test_deferred_production_threshold_must_be_rejected(self):
         value = packet()
         value["criterion_analysis"]["decision_threshold"] = (
@@ -98,13 +95,11 @@ class ExecutiveLogicNonAgentRegression(unittest.TestCase):
         )
         self.assertEqual(self.assess(value)["standard_status"], "FAIL")
 
-    @unittest.expectedFailure
     def test_bounded_source_upgraded_to_production_must_be_rejected(self):
         value = packet()
         value["normalized_proposition"]["environment"] = "production"
         self.assertEqual(self.assess(value)["standard_status"], "FAIL")
 
-    @unittest.expectedFailure
     def test_vote_mismatch_must_be_rejected_despite_consistency_claim(self):
         value = packet()
         value["proposed_vote"] = "NO"
