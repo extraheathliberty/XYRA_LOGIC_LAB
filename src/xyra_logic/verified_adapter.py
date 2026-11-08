@@ -4,6 +4,8 @@ No live transport, no persistent nonce store, no issuer authorization policy,
 and no permission to issue commands. Suitable only for bounded development.
 """
 from dataclasses import dataclass
+import hashlib
+import json
 from xyra_logic.estate_assurance import assess_estate_request,CONSUMERS
 from xyra_logic.source_verification import verify_source_bytes
 from xyra_logic.replay_guard import ReplayGuard,SignedRequest
@@ -14,6 +16,14 @@ class VerifiedAdvisory:
     reason: str
     assurance: object | None
     action_authorized: bool
+
+def bound_request_digest(assurance_digest,envelopes):
+    """Bind request authentication to the exact signed evidence envelopes."""
+    payload={"assurance_digest":assurance_digest,
+             "envelopes":[{"id":e.evidence_id,"issuer":e.issuer,
+                           "source_digest":e.source_digest,"signature":e.signature}
+                          for e in envelopes]}
+    return hashlib.sha256(json.dumps(payload,sort_keys=True,separators=(",",":")).encode()).hexdigest()
 
 def assess_verified_request(consumer,premises,proposition,envelopes,sources,
                             signed_request,keyring,replay_guard,now):
@@ -36,7 +46,7 @@ def assess_verified_request(consumer,premises,proposition,envelopes,sources,
         ids.add(e.evidence_id)
     advisory=assess_estate_request(consumer,premises,proposition,
                                   tuple(e.evidence_id for e in envelopes))
-    if not isinstance(signed_request,SignedRequest) or signed_request.request_digest!=advisory.request_digest:
+    if not isinstance(signed_request,SignedRequest) or signed_request.request_digest!=bound_request_digest(advisory.request_digest,envelopes):
         return VerifiedAdvisory("REJECT","request_digest_mismatch",None,False)
     if not isinstance(replay_guard,ReplayGuard):
         return VerifiedAdvisory("REJECT","invalid_replay_guard",None,False)
