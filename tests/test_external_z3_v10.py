@@ -1,9 +1,11 @@
 """Runs only in optional external Z3 verification workflow."""
 import json
 import unittest
+import importlib.util
 from xyra_logic.formal_core import Var,Not,Imp,And,Or
 from xyra_logic.z3_verifier import verify_with_z3
 P,Q=Var("P"),Var("Q")
+@unittest.skipUnless(importlib.util.find_spec("z3") is not None,"z3-solver not installed in standard test environment")
 class TestExternalZ3(unittest.TestCase):
  def check(self,premises,conclusion,expected):
   result=verify_with_z3(premises,conclusion)
