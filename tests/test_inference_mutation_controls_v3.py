@@ -5,7 +5,7 @@ and/or falsified by a semantic countermodel. This is not a general mutation
 testing framework.
 """
 import unittest
-from xyra_logic.formal_core import Var,Not,Imp,And,ProofStep,valid,countermodels,check_proof
+from xyra_logic.formal_core import Var,Not,Imp,And,ProofStep,valid,countermodels,check_proof,satisfiable
 from xyra_logic.bitset_oracle import oracle_entails
 P,Q=Var("P"),Var("Q")
 
@@ -37,6 +37,7 @@ class TestInferenceMutationControls(unittest.TestCase):
  def test_excluded_middle_not_premise_of_P(self):
   self.assertFalse(valid([P if False else Imp(P,P)],P))
  def test_contradiction_does_not_imply_premise_consistency(self):
-  self.assertFalse(valid([P,Not(P)],Not(Q)) is False)
+  self.assertTrue(valid([P,Not(P)],Not(Q)))
+  self.assertFalse(satisfiable([P,Not(P)]))
 if __name__=="__main__":
  unittest.main()
