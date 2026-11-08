@@ -1,0 +1,32 @@
+name: Logic independent Z3 assurance
+on:
+  push:
+    branches:
+      - logic-fnd-v2-formal-core-20261107
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  external-z3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install independent Z3 solver
+        run: python -m pip install 'z3-solver==4.13.4.0'
+      - name: Execute external solver verification (not skipped)
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest discover -s tests -p 'test_external_z3_v10.py' -v 2>&1 | tee z3-verification.log
+          grep -q 'Ran 6 tests' z3-verification.log
+          grep -q '^OK$' z3-verification.log
+          grep -q 'Z3_VERIFIED' z3-verification.log
+      - name: Archive independent solver evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: logic-z3-external-verification
+          path: z3-verification.log
