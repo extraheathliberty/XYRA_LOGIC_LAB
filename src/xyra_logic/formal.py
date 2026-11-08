@@ -114,3 +114,30 @@ def analyze(premises, conclusion, max_atoms=16):
         "countermodels": counterexamples,
         "premise_model_count": len(premise_models),
     }
+
+
+def minimal_inconsistent_subset(premises, max_atoms=16):
+    """Return a deletion-minimal inconsistent subset, or empty tuple.
+
+    This is subset-minimal, not guaranteed minimum-cardinality. Original
+    premise order is preserved. The same atom cap applies to every check.
+    """
+    remaining = list(premises)
+    if satisfiable(remaining, max_atoms):
+        return ()
+    index = 0
+    while index < len(remaining):
+        candidate = remaining[:index] + remaining[index + 1:]
+        if not satisfiable(candidate, max_atoms):
+            remaining = candidate
+        else:
+            index += 1
+    return tuple(remaining)
+
+
+def diagnose(premises, conclusion, max_atoms=16):
+    """Return entailment analysis with an explicit inconsistency witness."""
+    premises = tuple(premises)
+    result = analyze(premises, conclusion, max_atoms)
+    result["inconsistent_subset"] = minimal_inconsistent_subset(premises, max_atoms)
+    return result
