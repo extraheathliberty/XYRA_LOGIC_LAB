@@ -22,7 +22,7 @@ jobs:
           PYTHONPATH: src
         run: |
           python -m unittest discover -s tests -p 'test_external_z3_v10.py' -v 2>&1 | tee z3-verification.log
-          grep -q 'Ran 6 tests' z3-verification.log
+          grep -q 'Ran 16 tests' z3-verification.log
           grep -q '^OK$' z3-verification.log
           grep -q 'Z3_VERIFIED' z3-verification.log
       - name: Archive independent solver evidence
