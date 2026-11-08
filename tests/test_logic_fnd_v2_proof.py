@@ -37,9 +37,13 @@ class ProofTests(unittest.TestCase):
     def test_nested_discharge(self):
         inner = Implies(self.q, self.p)
         outer = Implies(self.p, inner)
+        # Use both assumptions in a derivation before discharging them.
+        pair = And(self.p, self.q)
         steps = [S(self.p, "assume"), S(self.q, "assume"),
-                 S(inner, "implies_intro", (0,), assumption=1),
-                 S(outer, "implies_intro", (2,), assumption=0)]
+                 S(pair, "and_intro", (0, 1)),
+                 S(self.p, "and_left", (2,)),
+                 S(inner, "implies_intro", (3,), assumption=1),
+                 S(outer, "implies_intro", (4,), assumption=0)]
         self.assertTrue(verify_proof([], steps, outer))
 
     def test_undischarged_assumption_rejected(self):
