@@ -7,7 +7,8 @@ This is an assurance tool, not a complete theorem prover.
 from __future__ import annotations
 from dataclasses import dataclass
 from itertools import product
-from xyra_logic.formal_core import variables, evaluate, check_proof
+from xyra_logic.formal_core import evaluate, check_proof
+from xyra_logic.structural_audit import inspect_formula
 
 MAX_VARIABLES = 12
 MAX_PROOF_STEPS = 2000
@@ -24,7 +25,7 @@ def audit_proof(premises, steps, conclusion):
     if len(steps) > MAX_PROOF_STEPS:
         return ProofAudit(False, False, None, "proof_step_budget_exceeded")
     formulas = list(premises) + [conclusion] + [s.formula for s in steps]
-    names = sorted(set().union(*(variables(f) for f in formulas)))
+    names = sorted(set().union(*(inspect_formula(f) for f in formulas)))
     if len(names) > MAX_VARIABLES:
         return ProofAudit(False, False, None, "truth_assignment_budget_exceeded")
     accepted = check_proof(premises, steps, conclusion)
