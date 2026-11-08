@@ -9,6 +9,7 @@ import json
 from xyra_logic.estate_assurance import assess_estate_request,CONSUMERS
 from xyra_logic.source_verification import verify_source_bytes
 from xyra_logic.replay_guard import ReplayGuard,SignedRequest
+from xyra_logic.durable_replay import DurableReplayGuard
 
 @dataclass(frozen=True)
 class VerifiedAdvisory:
@@ -48,7 +49,7 @@ def assess_verified_request(consumer,premises,proposition,envelopes,sources,
                                   tuple(e.evidence_id for e in envelopes))
     if not isinstance(signed_request,SignedRequest) or signed_request.request_digest!=bound_request_digest(advisory.request_digest,envelopes):
         return VerifiedAdvisory("REJECT","request_digest_mismatch",None,False)
-    if not isinstance(replay_guard,ReplayGuard):
+    if not isinstance(replay_guard,(ReplayGuard,DurableReplayGuard)):
         return VerifiedAdvisory("REJECT","invalid_replay_guard",None,False)
     accepted,reason=replay_guard.verify_once(signed_request,keyring,now)
     if not accepted:
