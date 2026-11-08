@@ -41,6 +41,10 @@ class DurableReplayGuard:
             with self._connect() as db:
                 try:
                     db.execute("BEGIN IMMEDIATE")
+                    existing=db.execute("SELECT 1 FROM admitted_nonce WHERE issuer=? AND nonce=?", (request.issuer,request.nonce)).fetchone()
+                    if existing:
+                        db.execute("ROLLBACK")
+                        return False,"replayed_nonce"
                     count=db.execute("SELECT COUNT(*) FROM admitted_nonce").fetchone()[0]
                     if count>=self.max_entries:
                         db.execute("ROLLBACK")
