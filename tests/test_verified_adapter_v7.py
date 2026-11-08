@@ -5,7 +5,7 @@ from xyra_logic.formal_core import Var,Not
 from xyra_logic.evidence_envelope import sign_evidence
 from xyra_logic.estate_assurance import assess_estate_request
 from xyra_logic.replay_guard import sign_request,ReplayGuard
-from xyra_logic.verified_adapter import assess_verified_request
+from xyra_logic.verified_adapter import assess_verified_request,bound_request_digest
 P,Q=Var("P"),Var("Q")
 K=b"k"*32
 NOW=datetime(2026,11,8,14,tzinfo=timezone.utc)
@@ -13,7 +13,7 @@ STAMP="2026-11-08T14:00:00Z"
 def fixture(consumer="LOGIC",p=P,conclusion=P,source=b"source",nonce="n1"):
  e=sign_evidence("e1","issuer",p,hashlib.sha256(source).hexdigest(),STAMP,K)
  digest=assess_estate_request(consumer,[p],conclusion,("e1",)).request_digest
- req=sign_request("issuer",nonce,STAMP,digest,K)
+ req=sign_request("issuer",nonce,STAMP,bound_request_digest(digest,[e]),K)
  return e,req
 class TestVerifiedAdapter(unittest.TestCase):
  def setUp(self):
@@ -55,6 +55,9 @@ class TestVerifiedAdapter(unittest.TestCase):
  def test_invalid_replay_guard(self):
   result=assess_verified_request("LOGIC",[P],P,[self.e],[b"source"],self.req,{"issuer":K},None,NOW)
   self.assertEqual(result.reason,"invalid_replay_guard")
+ def test_envelope_swap_same_id_rejected(self):
+  altered=sign_evidence("e1","issuer",P,hashlib.sha256(b"other").hexdigest(),STAMP,K)
+  self.assertEqual(self.call(envelopes=[altered],sources=[b"other"]).reason,"request_digest_mismatch")
  def test_unverified_truth_limitation(self):
   self.assertIn("premise_truth_not_verified",self.call().assurance.limitations)
 if __name__=="__main__":
